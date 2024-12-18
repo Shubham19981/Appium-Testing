@@ -1,0 +1,6 @@
+[Android_pixel_5 INFO ] 2024-11-13 12:34:17.970 ServerManager:19 - starting appium server
+[Android_pixel_5 INFO ] 2024-11-13 12:34:21.363 ServerManager:28 - Appium server started
+[Android_pixel_5 INFO ] 2024-11-13 12:34:21.378 DriverManager:28 - initializing Appium driver
+[Android_pixel_5 INFO ] 2024-11-13 12:34:21.393 PropertyManager:17 - loading config properties
+[Android_pixel_5 INFO ] 2024-11-13 12:34:21.394 CapabilitiesManager:17 - getting capabilities
+[Android_pixel_5 INFO ] 2024-11-13 12:34:21.399 CapabilitiesManager:33 - appUrl isC:\Users\harsh\Downloads\JWT Authentication\AppiumCucumberFramework\src\test\resources\apps\app-debug.apk
