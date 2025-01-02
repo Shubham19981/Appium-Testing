@@ -15,7 +15,7 @@ public class Hooks {
     @Before
     public void initialize() throws Exception {
         BasePage basePage = new BasePage();
-        basePage.closeApp();
+//        basePage.closeApp();
         basePage.launchApp();
 /*        GlobalParams params = new GlobalParams();
         params.initializeGlobalParams();

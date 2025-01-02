@@ -1,1 +1,12 @@
-[Android_Nokia INFO ] 2024-12-18 12:22:09.240 ServerManager:20 - starting appium server
+[Android_Nokia INFO ] 2025-01-02 18:21:59.258 ServerManager:20 - starting appium server
+[Android_Nokia INFO ] 2025-01-02 18:22:03.942 ServerManager:29 - Appium server started
+[Android_Nokia INFO ] 2025-01-02 18:22:03.967 DriverManager:28 - Initializing Appium driver
+[Android_Nokia INFO ] 2025-01-02 18:22:04.009 PropertyManager:17 - loading config properties
+[Android_Nokia INFO ] 2025-01-02 18:22:04.011 CapabilitiesManager:17 - getting capabilities
+[Android_Nokia INFO ] 2025-01-02 18:22:04.031 CapabilitiesManager:34 - appUrl isC:\Users\Shalini Sahu\Appium-Testing\src\test\resources\apps\app-debug.apk
+[Android_Nokia INFO ] 2025-01-02 18:22:20.980 DriverManager:46 - Driver is initialized
+[Android_Nokia INFO ] 2025-01-02 18:22:22.716 DriverManager:28 - Initializing Appium driver
+[Android_Nokia INFO ] 2025-01-02 18:22:22.717 CapabilitiesManager:17 - getting capabilities
+[Android_Nokia INFO ] 2025-01-02 18:22:22.717 CapabilitiesManager:34 - appUrl isC:\Users\Shalini Sahu\Appium-Testing\src\test\resources\apps\app-debug.apk
+[Android_Nokia INFO ] 2025-01-02 18:22:36.532 DriverManager:46 - Driver is initialized
+[Android_Nokia INFO ] 2025-01-02 18:23:19.037 VideoManager:35 - video path: Android_Nokia\Videos\User completes the login process and verifies OTP.mp4
