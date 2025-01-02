@@ -20,6 +20,7 @@ Feature: User Login and OTP Verification in Spandan App
     Then I should "<outcome>"
 
 
+
     Examples:
       | screen          | language | next_button | use_case     | phone_number | otp    | outcome                                 |
       | Select Language | English  | Next        | Clinical Use | 1234567890   | 123456 | be redirected to the dashboard          |
