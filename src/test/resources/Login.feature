@@ -26,7 +26,6 @@ Feature: User Login and OTP Verification in Spandan App
     And I click on ok button
     And I click on Start Test
 
-
     Examples:
       | language | use_case | phone_number | otp    |
       | Hindi | Clinical Use | 6306046513   | 123456 |
