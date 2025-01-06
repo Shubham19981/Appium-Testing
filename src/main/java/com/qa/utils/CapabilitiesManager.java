@@ -48,7 +48,8 @@ public class CapabilitiesManager {
 //                    break;
             }
             return caps;
-        } catch(Exception e){
+        }
+        catch(Exception e){
             e.printStackTrace();
             utils.log().fatal("Failed to load capabilities. ABORT!!{}", e.toString());
             throw e;

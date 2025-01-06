@@ -113,17 +113,17 @@ public class BasePage {
         return txt;
     }
 
-    public void closeApp() {
-        switch(new GlobalParams().getPlatformName()){
-            case "Android":
-                ((InteractsWithApps) driver).terminateApp(driver.getCapabilities().
-                        getCapability("appPackage").toString());
-                break;
-            case "iOS":
-                ((InteractsWithApps) driver).terminateApp(driver.getCapabilities().
-                        getCapability("bundleId").toString());
-        }
-    }
+//    public void closeApp() {
+//        switch(new GlobalParams().getPlatformName()){
+//            case "Android":
+//                ((InteractsWithApps) driver).terminateApp(driver.getCapabilities().
+//                        getCapability("appPackage").toString());
+//                break;
+//            case "iOS":
+//                ((InteractsWithApps) driver).terminateApp(driver.getCapabilities().
+//                        getCapability("bundleId").toString());
+//        }
+//    }
 
     public void launchApp() {
         switch(new GlobalParams().getPlatformName()){

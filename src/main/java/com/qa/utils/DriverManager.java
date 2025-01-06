@@ -7,7 +7,7 @@ import io.appium.java_client.ios.IOSDriver;
 import java.io.IOException;
 
 public class DriverManager {
-    private static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
+    public static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
     TestUtils utils = new TestUtils();
 
     public AppiumDriver getDriver() {
@@ -55,11 +55,11 @@ public class DriverManager {
         }
     }
 
-    public void quitDriver() {
-        if (driver.get() != null) {
-            driver.get().quit();
-            driver.remove();
-            utils.log().info("Driver has been quit and removed");
-        }
-    }
+//    public void quitDriver() {
+//        if (driver.get() != null) {
+//            driver.get().quit();
+//            driver.remove();
+//            utils.log().info("Driver has been quit and removed");
+//        }
+//    }
 }
