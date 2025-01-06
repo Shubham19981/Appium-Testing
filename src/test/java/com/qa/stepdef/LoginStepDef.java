@@ -6,11 +6,20 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When; 
+import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
+
+import static com.qa.utils.DriverManager.driver;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
+
+//import java.time.Duration;
 
 public class LoginStepDef {
     private static AppiumDriver driver;
@@ -25,7 +34,6 @@ public class LoginStepDef {
         driverManager.initializeDriver();
         this.driver = driverManager.getDriver();
     }
-
     @Given("I am on the language selection page")
     public void iAmOnTheLanguageSelectionPage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
