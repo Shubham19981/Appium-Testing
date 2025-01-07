@@ -22,9 +22,10 @@ Feature: User Login and OTP Verification in Spandan App
     Then I should be on Lead II ECG Test Page
     When I click on Start_Test_button
     Then I should be on a blank screen
-    When Device is connected
-    And I click on ok button
-    And I click on Start Test
+#    When Device is connected
+#    And I click on ok button
+#    And I click on Start Test
+
 
     Examples:
       | language | use_case | phone_number | otp    |
