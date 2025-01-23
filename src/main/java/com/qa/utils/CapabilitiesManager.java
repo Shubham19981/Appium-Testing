@@ -19,7 +19,7 @@ public class CapabilitiesManager {
             caps.setCapability("platformName", params.getPlatformName());
             caps.setCapability("udid", params.getUDID());
             caps.setCapability("deviceName", params.getDeviceName());
-            caps.setCapability("appiumURL", params.getURL());
+            caps.setCapability("appiumURL", params.getAppiumURL());
 
             switch(params.getPlatformName()){
                 case "Android":
