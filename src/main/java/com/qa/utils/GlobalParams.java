@@ -8,7 +8,8 @@ public class GlobalParams {
     private static ThreadLocal<String> chromeDriverPort = new ThreadLocal<String>();
     private static ThreadLocal<String> wdaLocalPort = new ThreadLocal<String>();
     private static ThreadLocal<String> webkitDebugProxyPort = new ThreadLocal<String>();
-
+     private static ThreadLocal<String> appiumURL = new ThreadLocal<String>();
+    
     public void setPlatformName(String platformName1){
         platformName.set(platformName1);
     }
@@ -67,6 +68,9 @@ public class GlobalParams {
 
       public String getappiumURL() {
         return appiumURL.get();
+    }
+     public void setappiumURL(String appiumURL2) {
+        appiumURL.set(appiumURL2);
     }
     
     public void initializeGlobalParams(){
