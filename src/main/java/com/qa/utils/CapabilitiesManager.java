@@ -20,7 +20,7 @@ public class CapabilitiesManager {
             caps.setCapability("udid", params.getUDID());
             caps.setCapability("deviceName", params.getDeviceName());
             caps.setCapability("appiumURL", params.getappiumURL());
-
+             caps.setCapability("noReset","true");
             switch(params.getPlatformName()){
                 case "Android":
                     caps.setCapability("automationName", props.getProperty("androidAutomationName"));
