@@ -7,7 +7,7 @@
 		<parameter name="deviceName" value="Nokia" />
 		<parameter name="systemPort" value="12000" />
 		<parameter name="chromeDriverPort" value="12000" />
-		<parameter name="appiumURL" value="http://192.168.31.59:31677/"></parameter>
+		<parameter name="appiumURL" value="http://http://139.59.79.23:1516/"></parameter>
 		<classes>
 			<class name="com.qa.runners.MyPixel3TestNGRunnerTest"/>
 		</classes>
