@@ -65,7 +65,7 @@ public class GlobalParams {
         webkitDebugProxyPort.set(webkitDebugProxyPort2);
     }
 
-      public String getAppiumURL() {
+      public String getappiumURL() {
         return appiumURL.get();
     }
     
@@ -74,7 +74,7 @@ public class GlobalParams {
         params.setPlatformName(System.getProperty("platformName", "Android"));
         params.setUDID(System.getProperty("udid", "100.108.210.70:6666"));
         params.setDeviceName(System.getProperty("deviceName", "Nokia"));
-        params.setAppiumURL(System.getProperty("appiumURL","139.59.79.23:4723/"));
+        params.setappiumURL(System.getProperty("appiumURL","139.59.79.23:4723/"));
         switch(params.getPlatformName()){
             case "Android":
                 params.setSystemPort(System.getProperty("systemPort", "10000"));
