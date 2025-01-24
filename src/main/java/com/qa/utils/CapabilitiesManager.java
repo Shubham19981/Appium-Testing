@@ -19,8 +19,7 @@ public class CapabilitiesManager {
             caps.setCapability("platformName", params.getPlatformName());
             caps.setCapability("udid", params.getUDID());
             caps.setCapability("deviceName", params.getDeviceName());
-            caps.setCapability("appiumURL", params.getappiumURL());
-             caps.setCapability("noReset","true");
+            caps.setCapability("noReset","true");
             switch(params.getPlatformName()){
                 case "Android":
                     caps.setCapability("automationName", props.getProperty("androidAutomationName"));
@@ -28,7 +27,6 @@ public class CapabilitiesManager {
                     caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
                     caps.setCapability("systemPort", params.getSystemPort());
                     caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
-                     caps.setCapability("appiumURL", params.getappiumURL());
                     
                     //String androidAppUrl = getClass().getResource(props.getProperty("androidAppLocation")).getFile();
                     String androidAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
