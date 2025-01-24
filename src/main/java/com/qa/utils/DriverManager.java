@@ -76,14 +76,14 @@ public class DriverManager {
         }
     }
 
-    // Uncomment this method if you want to quit the driver and log the action
-//    public void quitDriver() {
-//        if (driver.get() != null) {
-//            driver.get().quit();
-//            driver.remove();
-//            utils.log().info("Driver has been quit and removed");
-//        } else {
-//            utils.log().warn("Attempted to quit a null driver.");
-//        }
-//    }
+  //  Uncomment this method if you want to quit the driver and log the action
+   public void quitDriver() {
+       if (driver.get() != null) {
+           driver.get().quit();
+           driver.remove();
+           utils.log().info("Driver has been quit and removed");
+       } else {
+           utils.log().warn("Attempted to quit a null driver.");
+       }
+   }
 }
