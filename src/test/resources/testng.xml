@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="tests">
 	<test name="Pixel5">
 		<parameter name="platformName" value="Android" />
-		<parameter name="udid" value="100.108.210.70:5555" />
+		<parameter name="udid" value="100.108.210.70:6666" />
 		<parameter name="deviceName" value="Nokia" />
 		<parameter name="systemPort" value="12000" />
 		<parameter name="chromeDriverPort" value="12000" />
