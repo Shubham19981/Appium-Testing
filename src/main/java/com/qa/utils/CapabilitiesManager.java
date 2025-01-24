@@ -27,7 +27,7 @@ public class CapabilitiesManager {
                     caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
                     caps.setCapability("systemPort", params.getSystemPort());
                     caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
-                    desiredCapabilities.setCapability("automationName", "UiAutomator2");
+                    DesiredCapabilities.setCapability("automationName", "UiAutomator2");
                     //String androidAppUrl = getClass().getResource(props.getProperty("androidAppLocation")).getFile();
                     String androidAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
                             + File.separator + "resources" + File.separator + "apps" + File.separator + "app-debug.apk";
