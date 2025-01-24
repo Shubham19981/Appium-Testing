@@ -22,7 +22,7 @@ public class CapabilitiesManager {
             caps.setCapability("noReset","true");
             switch(params.getPlatformName()){
                 case "Android":
-                    caps.setCapability("automationName", props.getProperty("androidAutomationName"));
+                    caps.setCapability("automationName", props.getProperty("UiAutomator2"));
                     caps.setCapability("appPackage", props.getProperty("androidAppPackage"));
                     caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
                     caps.setCapability("systemPort", params.getSystemPort());
