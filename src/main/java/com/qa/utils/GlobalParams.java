@@ -76,7 +76,7 @@ public class GlobalParams {
     public void initializeGlobalParams(){
         GlobalParams params = new GlobalParams();
         params.setPlatformName(System.getProperty("platformName", "Android"));
-        params.setUDID(System.getProperty("udid", "100.108.210.70:5555"));
+        params.setUDID(System.getProperty("udid", "100.108.210.70:6666"));
         params.setDeviceName(System.getProperty("deviceName", "Nokia"));
          params.setappiumURL("http://100.105.134.36:4723/");
         switch(params.getPlatformName()){
