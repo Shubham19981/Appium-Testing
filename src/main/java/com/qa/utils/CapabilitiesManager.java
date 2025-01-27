@@ -32,15 +32,10 @@ public class CapabilitiesManager {
                     caps.setCapability("androidInstallTimeout", 300000);
 
                     //String androidAppUrl = getClass().getResource(props.getProperty("androidAppLocation")).getFile();
-                    // Get the workspace directory from the environment variable (specific to Jenkins)
-                    String workspaceDir = System.getenv("WORKSPACE");
 
-                    if (workspaceDir == null || workspaceDir.isEmpty()) {
-                        throw new IllegalStateException("WORKSPACE environment variable is not set. Ensure Jenkins sets it.");
-                    }
 
 // Construct the APK path relative to the Jenkins workspace
-                    String androidAppUrl = workspaceDir + File.separator + "src" + File.separator + "test"
+                    String androidAppUrl = File.separator + "root" + File.separator + ".jenkins" + File.separator + "workspace" + File.separator + "Test_Android" + File.separator + "src" + File.separator + "test"
                             + File.separator + "resources" + File.separator + "apps" + File.separator + "app-debug.apk";
 
                     utils.log().info("appUrl is {}", androidAppUrl);
