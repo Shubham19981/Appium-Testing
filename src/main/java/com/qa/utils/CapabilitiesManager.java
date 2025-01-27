@@ -29,7 +29,7 @@ public class CapabilitiesManager {
                     caps.setCapability("systemPort", params.getSystemPort());
                     caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
                     caps.setCapability("automationName", "UiAutomator2");
-                    capabilities.setCapability("androidInstallTimeout", 300000);
+                    caps.setCapability("androidInstallTimeout", 300000);
 
                     //String androidAppUrl = getClass().getResource(props.getProperty("androidAppLocation")).getFile();
                     String androidAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
