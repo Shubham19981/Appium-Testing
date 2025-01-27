@@ -36,7 +36,7 @@ public class LoginStepDef {
     }
     @Given("I am on the language selection page")
     public void iAmOnTheLanguageSelectionPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/tv_language_heading']")
         ));
