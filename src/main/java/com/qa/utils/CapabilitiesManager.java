@@ -19,7 +19,7 @@ public class CapabilitiesManager {
             caps.setCapability("platformName", params.getPlatformName());
             caps.setCapability("udid", params.getUDID());
             caps.setCapability("deviceName", params.getDeviceName());
-            caps.setCapability("noReset","true");
+            caps.setCapability("noReset","false");
             
             switch(params.getPlatformName()){
                 case "Android":
