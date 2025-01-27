@@ -36,7 +36,7 @@ public class LoginStepDef {
     }
     @Given("I am on the language selection page")
     public void iAmOnTheLanguageSelectionPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/tv_language_heading']")
         ));
@@ -48,11 +48,11 @@ public class LoginStepDef {
             System.out.println("Language Selection page is not displayed");
             throw new AssertionError("Language Selection page not displayed");
         }
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @When("I select the language as {string}")
@@ -72,11 +72,11 @@ public class LoginStepDef {
             // If already selected, no action needed
             System.out.println("Language " + language + " is already selected.");
         }
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @And("I click on the language_next_button")
@@ -87,11 +87,11 @@ public class LoginStepDef {
         ));
         button.click();
         System.out.println("language_next_button is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Then("I should be on the Select Use Case screen")
@@ -107,11 +107,11 @@ public class LoginStepDef {
             System.out.println("Use Case screen is not displayed");
             throw new AssertionError("Use Case screen not displayed");
         }
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @When("I select the {string} radio button")
@@ -122,11 +122,11 @@ public class LoginStepDef {
         ));
         useCaseCheckBox.click();
         System.out.println("Use Case " + useCase + " is selected.");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
 
@@ -139,11 +139,11 @@ public class LoginStepDef {
         ));
         button.click();
         System.out.println("use_case_next_button is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Then("I should be on the Instructions screen")
@@ -160,11 +160,11 @@ public class LoginStepDef {
             System.out.println("Instruction page is not displayed");
             throw new AssertionError("Instruction page not displayed");
         }
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
     @When("I click the instruction_next_button five times")
     public void iClickTheInstruction_next_buttonFiveTimes() {
