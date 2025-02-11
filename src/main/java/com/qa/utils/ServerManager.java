@@ -36,7 +36,7 @@ public class ServerManager {
     public AppiumDriverLocalService WindowsGetAppiumService() {
         GlobalParams params = new GlobalParams();
         return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                .usingAnyFreePort()
+                .usingPort(4723)
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                 .withLogFile(new File(params.getPlatformName() + "_"
                         + params.getDeviceName() + File.separator + "Server.log")));

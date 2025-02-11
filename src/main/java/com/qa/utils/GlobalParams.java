@@ -8,7 +8,8 @@ public class GlobalParams {
     private static ThreadLocal<String> chromeDriverPort = new ThreadLocal<String>();
     private static ThreadLocal<String> wdaLocalPort = new ThreadLocal<String>();
     private static ThreadLocal<String> webkitDebugProxyPort = new ThreadLocal<String>();
-
+     private static ThreadLocal<String> appiumURL = new ThreadLocal<String>();
+    
     public void setPlatformName(String platformName1){
         platformName.set(platformName1);
     }
@@ -65,12 +66,19 @@ public class GlobalParams {
         webkitDebugProxyPort.set(webkitDebugProxyPort2);
     }
 
+      public String getappiumURL() {
+        return appiumURL.get();
+    }
+     public void setappiumURL(String appiumURL2) {
+        appiumURL.set(appiumURL2);
+    }
+    
     public void initializeGlobalParams(){
         GlobalParams params = new GlobalParams();
         params.setPlatformName(System.getProperty("platformName", "Android"));
-        params.setUDID(System.getProperty("udid", "4Z01Z2791Y181703151"));
+        params.setUDID(System.getProperty("udid", "100.108.210.70:6666"));
         params.setDeviceName(System.getProperty("deviceName", "Nokia"));
-
+         params.setappiumURL("http://100.105.134.36:4723/");
         switch(params.getPlatformName()){
             case "Android":
                 params.setSystemPort(System.getProperty("systemPort", "10000"));

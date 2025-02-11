@@ -19,7 +19,8 @@ public class CapabilitiesManager {
             caps.setCapability("platformName", params.getPlatformName());
             caps.setCapability("udid", params.getUDID());
             caps.setCapability("deviceName", params.getDeviceName());
-
+            caps.setCapability("noReset","false");
+            
             switch(params.getPlatformName()){
                 case "Android":
                     caps.setCapability("automationName", props.getProperty("androidAutomationName"));
@@ -27,12 +28,21 @@ public class CapabilitiesManager {
                     caps.setCapability("appActivity", props.getProperty("androidAppActivity"));
                     caps.setCapability("systemPort", params.getSystemPort());
                     caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
+                    caps.setCapability("automationName", "UiAutomator2");
+                    caps.setCapability("androidInstallTimeout", 300000);
 
                     //String androidAppUrl = getClass().getResource(props.getProperty("androidAppLocation")).getFile();
-                    String androidAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+
+
+// Construct the APK path relative to the Jenkins workspace
+                    String androidAppUrl = File.separator + "root" + File.separator + ".jenkins" + File.separator + "workspace" + File.separator + "Test_Android" + File.separator + "src" + File.separator + "test"
                             + File.separator + "resources" + File.separator + "apps" + File.separator + "app-debug.apk";
-                    utils.log().info("appUrl is{}", androidAppUrl);
+
+                    utils.log().info("appUrl is {}", androidAppUrl);
+
+// Set the capability to use the dynamically resolved APK path
                     caps.setCapability("app", androidAppUrl);
+
 
                     break;
 //                case "iOS":
@@ -48,7 +58,8 @@ public class CapabilitiesManager {
 //                    break;
             }
             return caps;
-        } catch(Exception e){
+        }
+        catch(Exception e){
             e.printStackTrace();
             utils.log().fatal("Failed to load capabilities. ABORT!!{}", e.toString());
             throw e;

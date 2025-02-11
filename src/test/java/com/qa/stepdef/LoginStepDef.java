@@ -1,206 +1,419 @@
 package com.qa.stepdef;
-
+import com.qa.utils.DriverManager;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static com.qa.utils.DriverManager.driver;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
+
+//import java.time.Duration;
 
 public class LoginStepDef {
+    private static AppiumDriver driver;
 
-    @Given("I am on the {string} screen")
-    public void i_am_on_the_screen(String screen) {
-        // Code to verify user is on the specified screen
-        if (screen.equals("Login")) {
-            // Code to check that login screen is displayed
-            checkScreenDisplayed("loginScreenTitle");
-        } else if (screen.equals("Home")) {
-            // Code to check that home screen is displayed
-            checkScreenDisplayed("homeScreenTitle");
+    public LoginStepDef() {
+        // No-argument constructor required by Cucumber
+    }
+
+    @Before
+    public void setUp() throws Exception {
+        DriverManager driverManager = new DriverManager();
+        driverManager.initializeDriver();
+        this.driver = driverManager.getDriver();
+    }
+    @Given("I am on the language selection page")
+    public void iAmOnTheLanguageSelectionPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/tv_language_heading']")
+        ));
+        System.out.println("Checking if the Language Selection page is displayed");
+        // Verify the element is displayed
+        if (pageText.isDisplayed()) {
+            System.out.println("Language Selection page is displayed successfully");
+        } else {
+            System.out.println("Language Selection page is not displayed");
+            throw new AssertionError("Language Selection page not displayed");
         }
-        // Add additional screens as needed
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @When("I select the language as {string}")
     public void i_select_the_language_as(String language) {
-        // Code to select language from the language selector
-        selectLanguage(language);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement languageCheckbox = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.RadioButton[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/change_lang_rb_hindi']")
+        ));
+
+        // Check if the checkbox is selected
+        if (!languageCheckbox.isSelected()) {
+            // If not selected, click to select it
+            languageCheckbox.click();
+            System.out.println("Language  " + language + " is now selected.");
+        } else {
+            // If already selected, no action needed
+            System.out.println("Language " + language + " is already selected.");
+        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
-    @When("I click on the {string} button")
-    public void i_click_on_the_button(String button) {
-        // Code to click the specified button
-        clickButton(button);
+    @And("I click on the language_next_button")
+    public void i_click_on_the_language_next_button() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.Button[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/btn_language_next']")
+        ));
+        button.click();
+        System.out.println("language_next_button is clicked");
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    @Then("I should be on the Select Use Case screen")
+    public void iShouldBeOnTheSelectUseCaseScreen(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.view.ViewGroup")
+        ));
+        System.out.println("Checking if the Use Case screen is displayed");
+        if (pageText.isDisplayed()) {
+            System.out.println("Use Case screen is displayed successfully");
+        } else {
+            System.out.println("Use Case screen is not displayed");
+            throw new AssertionError("Use Case screen not displayed");
+        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @When("I select the {string} radio button")
-    public void iSelectTheRadioButton(String radioButton) {
-        // Code to select the radio button based on input
-        selectRadioButton(radioButton);
+    public void i_select_the_radio_button(String useCase){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement useCaseCheckBox = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.RadioButton[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/user_case_clinical_personal']")
+        ));
+        useCaseCheckBox.click();
+        System.out.println("Use Case " + useCase + " is selected.");
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
-    @When("I click the {string} button five times to proceed")
-    public void i_click_the_button_five_times_to_proceed(String button) {
-        // Code to click the specified button five times
-        for (int i = 0; i < 5; i++) {
-            clickButton(button);
+
+
+    @When("I click on the use_case_next_button")
+    public void i_click_on_the_use_case_next_button() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.Button[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/btn_use_next']")
+        ));
+        button.click();
+        System.out.println("use_case_next_button is clicked");
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    @Then("I should be on the Instructions screen")
+    public void iShouldBeOnTheInstructionsScreen() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/pageTitle']")
+        ));
+        System.out.println("Checking if the Instruction page is displayed");
+        // Verify the element is displayed
+        if (pageText.isDisplayed()) {
+            System.out.println("Instruction page is displayed successfully");
+        } else {
+            System.out.println("Instruction page is not displayed");
+            throw new AssertionError("Instruction page not displayed");
+        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+    }
+    @When("I click the instruction_next_button five times")
+    public void iClickTheInstruction_next_buttonFiveTimes() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        for(int repeat = 1; repeat <= 5; repeat++ ){
+            WebElement button = wait.until(ExpectedConditions.elementToBeClickable(
+                    AppiumBy.xpath("//android.widget.Button[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/btn_next']")
+            ));
+            button.click();
+            System.out.println("Button clicked : "+ repeat );
+        }
+    }
+
+    @Then("I should be on the Phone Number page")
+    public void iShouldBeOnThePhoneNumberPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/tv_language_heading']")
+        ));
+        System.out.println("Checking if the Phone Number page is displayed");
+        // Verify the element is displayed
+        if (pageText.isDisplayed()) {
+            System.out.println("Phone Number page is displayed successfully");
+        } else {
+            System.out.println("Phone Number page is not displayed");
+            throw new AssertionError("Phone Number page not displayed");
+        }
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
     @When("I enter the phone number as {string}")
     public void i_enter_the_phone_number_as(String phoneNumber) {
-        // Code to enter the phone number into the input field
-        enterPhoneNumber(phoneNumber);
-    }
-
-    @When("I check the checkbox")
-    public void i_check_the_checkbox() {
-        // Code to check the OTP checkbox
-        checkCheckbox();
-    }
-
-    @When("I click on the OTP button")
-    public void i_click_on_the_otp_button() {
-        // Code to click the OTP button to generate/send OTP
-        clickOtpButton();
-    }
-
-    @Then("I should be on the {string} screen")
-    public void i_should_be_on_the_screen(String screen) {
-        // Code to verify that the user is on the expected screen
-        if (screen.equals("Home")) {
-            // Code to check that the home screen is displayed
-            checkScreenDisplayed("homeScreenTitle");
-        } else if (screen.equals("Login")) {
-            // Code to check that the login screen is displayed
-            checkScreenDisplayed("loginScreenTitle");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement phoneNumberField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.EditText[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/et_mobile_number']")
+        ));
+        phoneNumberField.sendKeys(phoneNumber);;
+        System.out.println("Phone " + phoneNumber + " is entered");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        // Add additional screen checks as needed
     }
+
+    @And("I click the checkbox")
+    public void iClickTheCheckbox(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.CheckBox[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/checkbox_terms']")
+        ));
+        checkbox.click();
+        System.out.println("Check box is clicked");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @When("I click on the Get_OTP_button")
+    public void i_click_on_the_get_otp_button() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement getOtpButton = wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.Button[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/btn_get_otp']")
+        ));
+        getOtpButton.click();
+        System.out.println("Get OPT button is clicked");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Then("I should be on the OTP screen")
+    public void iShouldBeOnTheOTPScreen() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("(//android.widget.FrameLayout[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/nav_host_fragment'])[2]/android.view.ViewGroup")
+        ));
+        System.out.println("Checking if the OTP screen is displayed");
+        // Verify the element is displayed
+        if (pageText.isDisplayed()) {
+            System.out.println("OTP screen is displayed successfully");
+        } else {
+            System.out.println("OTP screen is not displayed");
+            throw new AssertionError("OTP screen not displayed");
+        }
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @When("I enter {string} as the OTP")
-    public void i_enter_as_the_otp(String otp) {
-        // Code to enter the OTP in the OTP input field
-        enterOtp(otp);
+    public void i_enter_as_the_opt(String otp) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement otpField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.EditText")
+        ));
+        otpField.sendKeys(otp);
+        System.out.println("OTP : " + otp + " is entered");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    @When("I click on the verify OTP button")
+    @When("I click on the Verify_OTP_button")
     public void i_click_on_the_verify_otp_button() {
-        // Code to click the verify OTP button
-        clickVerifyOtpButton();
-    }
-
-    @Then("I should {string}")
-    public void i_should(String outcome) {
-        // Code to handle different outcomes after verifying OTP
-        if (outcome.equals("success")) {
-            // Code to check if logged in
-            checkLoggedIn();
-        } else if (outcome.equals("failure")) {
-            // Code to check if error message is displayed
-            checkErrorMessageDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement verifyOtpButton = wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.Button[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/btn_verify_otp']")
+        ));
+        verifyOtpButton.click();
+        System.out.println("Verify OPT button is clicked");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    @Then("I should \"see an error message \"Otp not verified\"\"")
-    public void iShouldSeeAnErrorMessageInvalidOTP() {
-        // Code to verify the error message "Invalid OTP"
-        checkErrorMessageDisplayed("Otp not verified");
-    }
-
-    // Helper Methods
-    private void checkScreenDisplayed(String screenTitle) {
-        // Code to check if the specified screen is displayed (replace with actual code)
-        findElementAndVerify(screenTitle);
-    }
-
-    private void selectLanguage(String language) {
-        // Example code for selecting a language
-        switch (language.toLowerCase()) {
-            case "english":
-                clickButton("languageEnglish");
-                break;
-            case "spanish":
-                clickButton("languageSpanish");
-                break;
-            case "french":
-                clickButton("languageFrench");
-                break;
-            default:
-                throw new IllegalArgumentException("Language not supported");
+    @Then("I should be on Dashboard")
+    public void i_should_be_on_dashboard() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement dashboardText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/home_fragment_hello_text']")
+        ));
+        assert dashboardText.isDisplayed();
+        System.out.println("We are in Dashboard");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    private void clickButton(String button) {
-        // Code to click a button
-        findElementAndClick(button);
-    }
-
-    private void selectRadioButton(String radioButton) {
-        // Code to select a radio button based on its label
-        findElementAndClick(radioButton);
-    }
-
-    private void enterPhoneNumber(String phoneNumber) {
-        // Code to enter the phone number in the text field
-        findElementAndEnterText("phoneNumberField", phoneNumber);
-    }
-
-    private void checkCheckbox() {
-        // Code to check a checkbox (e.g., OTP checkbox)
-        findElementAndClick("otpCheckbox");
-    }
-
-    private void clickOtpButton() {
-        // Code to click the OTP button
-        findElementAndClick("otpButton");
-    }
-
-    private void enterOtp(String otp) {
-        // Code to enter OTP
-        findElementAndEnterText("otpField", otp);
-    }
-
-    private void clickVerifyOtpButton() {
-        // Code to click the verify OTP button
-        findElementAndClick("verifyOtpButton");
-    }
-
-    private void checkLoggedIn() {
-        // Code to check if the user is logged in (e.g., check for a logged-in element)
-        findElementAndVerify("logoutButton");
-    }
-
-    private void checkErrorMessageDisplayed() {
-        // Code to check if error message is displayed (e.g., for failed OTP)
-        findElementAndVerify("Otp not verified");
-    }
-
-    private void checkErrorMessageDisplayed(String message) {
-        // Code to check if specific error message is displayed
-        String errorMessage = getElementText("Otp not verified");
-        if (!errorMessage.equals(message)) {
-            throw new RuntimeException("Error message does not match. Expected: " + message + ", Found: " + errorMessage);
+    @When("I click on the Lead II ECG")
+    public void iClickOnTheLeadIIECG(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement lead2Ecg = wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("(//android.widget.FrameLayout[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/ecg_test_option_card_view'])[11]/android.view.ViewGroup")
+        ));
+        lead2Ecg.click();
+        System.out.println("Lead 2 ECG is clicked");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    // Mock helper methods (these should be implemented using Appium or your UI automation framework)
-    private void findElementAndVerify(String elementId) {
-        // Example: verify if an element is displayed using your framework
-        // Replace with actual implementation
+
+    @Then("I should be on Lead II ECG Test Page")
+    public void iShouldBeOnLeadIIECGTestPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/new_detail_fragment_test_name_text']")
+        ));
+        assert pageText.isDisplayed();
+        System.out.println("We are in Lead II ECG Test Page");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void findElementAndClick(String elementId) {
-        // Example: interact with an element (click) using your framework
-        // Replace with actual implementation
+    @When("I click on Start_Test_button")
+    public void iClickOnStart_Test_button() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement lead2EcgTestButton = wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.view.ViewGroup[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/activity_ecg_test_start_test_button']")
+        ));
+        lead2EcgTestButton.click();
+        System.out.println("Lead 2 ECG is clicked");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void findElementAndEnterText(String elementId, String text) {
-        // Example: interact with an element (enter text) using your framework
-        // Replace with actual implementation
+    @Then("I should be on a blank screen")
+    public void iShouldBeOnABlankScreen() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/buy_device_fragment_troubleshoot_text']")
+        ));
+        assert pageText.isDisplayed();
+        System.out.println("We are on blank page");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    private String getElementText(String elementId) {
-        // Example: get the text of an element
-        // Replace with actual implementation
-        return "Otp not verified"; // Placeholder
+    @When("Device is connected")
+    public void deviceIsConnected() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement dialogueText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.widget.TextView[@resource-id='android:id/alertTitle']")
+        ));
+        assert dialogueText.isDisplayed();
+        System.out.println("Device is Connected");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @And("I click on ok button")
+    public void iClickOnOkButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.widget.Button[@resource-id='android:id/button1']")
+        ));
+        okButton.click();
+        System.out.println("Ok button is clicked");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @And("I click on Start Test")
+    public void iClickOnStartTest() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//android.view.ViewGroup[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/activity_ecg_test_start_test_button']")
+        ));
+        okButton.click();
+        System.out.println("Start Test Button is clicked");
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

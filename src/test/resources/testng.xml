@@ -3,11 +3,11 @@
 <suite name="Suite" parallel="tests">
 	<test name="Pixel5">
 		<parameter name="platformName" value="Android" />
-		<parameter name="udid" value="4Z01Z2791Y181703151" />
+		<parameter name="udid" value="100.108.210.70:6666" />
 		<parameter name="deviceName" value="Nokia" />
 		<parameter name="systemPort" value="12000" />
 		<parameter name="chromeDriverPort" value="12000" />
-		<parameter name="appiumURL" value="http://192.168.31.59:31677/"></parameter>
+		<parameter name="appiumURL" value="http://100.105.134.36:4723/"></parameter>
 		<classes>
 			<class name="com.qa.runners.MyPixel3TestNGRunnerTest"/>
 		</classes>

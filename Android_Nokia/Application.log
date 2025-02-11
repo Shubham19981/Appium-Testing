@@ -1,1 +1,13 @@
-[Android_Nokia INFO ] 2024-12-18 12:22:09.240 ServerManager:20 - starting appium server
+[Android_Nokia INFO ] 2025-01-23 14:09:17.525 ServerManager:20 - starting appium server
+[Android_Nokia INFO ] 2025-01-23 14:09:20.265 ServerManager:29 - Appium server started
+[Android_Nokia INFO ] 2025-01-23 14:09:20.282 DriverManager:28 - Initializing Appium driver
+[Android_Nokia INFO ] 2025-01-23 14:09:20.300 PropertyManager:17 - loading config properties
+[Android_Nokia INFO ] 2025-01-23 14:09:20.303 CapabilitiesManager:17 - getting capabilities
+[Android_Nokia INFO ] 2025-01-23 14:09:20.312 CapabilitiesManager:34 - appUrl isC:\Users\Shalini Sahu\Appium-Testing\src\test\resources\apps\app-debug.apk
+[Android_Nokia FATAL] 2025-01-23 14:09:20.778 DriverManager:52 - Driver initialization failure. ABORT !!!!org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Device 100.108.210.70:6666 was not in the list of connected devices 
+Host info: host: 'LAPTOP-C1D2HCD1', ip: '192.168.56.1'
+Build info: version: '4.28.0', revision: 'ac342546e9'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [null, newSession {capabilities=[{appium:app=C:\Users\Shalini Sahu\Appium-Testing\src\test\resources\apps\app-debug.apk, platformName=ANDROID, appium:udid=100.108.210.70:6666, appium:chromeDriverPort=12000, appium:appPackage=in.sunfox.healthcare.spandanecg.debug, appium:automationName=UiAutomator2, appium:systemPort=12000, appium:deviceName=Nokia, appium:appActivity=in.sunfox.healthcare.spandanecg.splash_screen.SplashScreen}], desiredCapabilities=Capabilities {app: C:\Users\Shalini Sahu\Appiu..., appActivity: in.sunfox.healthcare.spanda..., appPackage: in.sunfox.healthcare.spanda..., automationName: UiAutomator2, chromeDriverPort: 12000, deviceName: Nokia, platformName: ANDROID, systemPort: 12000, udid: 100.108.210.70:6666}}]
+Capabilities {app: C:\Users\Shalini Sahu\Appiu..., appActivity: in.sunfox.healthcare.spanda..., appPackage: in.sunfox.healthcare.spanda..., automationName: UiAutomator2, chromeDriverPort: 12000, deviceName: Nokia, platformName: ANDROID, systemPort: 12000, udid: 100.108.210.70:6666}
