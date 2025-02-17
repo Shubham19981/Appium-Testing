@@ -1,0 +1,16 @@
+[Android_Pixel_4 INFO ] 2025-02-10 08:26:54.017 ServerManager:20 - starting appium server
+[Android_Pixel_4 INFO ] 2025-02-10 08:26:56.760 ServerManager:29 - Appium server started
+[Android_Pixel_4 INFO ] 2025-02-10 08:26:56.761 DriverManager:36 - Initializing Appium driver
+[Android_Pixel_4 INFO ] 2025-02-10 08:26:56.761 DriverManager:43 - Initializing Android driver...
+[Android_Pixel_4 INFO ] 2025-02-10 08:26:56.761 CapabilitiesManager:17 - getting capabilities
+[Android_Pixel_4 INFO ] 2025-02-10 08:26:56.761 CapabilitiesManager:45 - appUrl is C:\Users\shubham\IdeaProjects\Appium-Testing\src\test\resources\apps\app-debug.apk
+[Android_Pixel_4 FATAL] 2025-02-10 08:26:56.922 DriverManager:68 - Driver initialization failure. ABORT !!!!org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Device emulator-5556 was not in the list of connected devices 
+Host info: host: 'INSTANCE-202501', ip: '100.112.254.77'
+Build info: version: '4.28.1', revision: '73f5ad48a2'
+System info: os.name: 'Windows Server 2025', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [null, newSession {capabilities=[{appium:app=C:\Users\shubham\IdeaProjects\Appium-Testing\src\test\resources\apps\app-debug.apk, appium:noReset=true, appium:deviceName=Pixel_4, appium:systemPort=10001, appium:uiautomator2ServerInstallTimeout=800000, platformName=ANDROID, appium:appActivity=in.sunfox.healthcare.spandanecg.splash_screen.SplashScreen, appium:chromeDriverPort=11001, appium:androidInstallTimeout=800000, appium:appPackage=in.sunfox.healthcare.spandanecg.debug, appium:automationName=UiAutomator2, appium:udid=emulator-5556}], desiredCapabilities=Capabilities {androidInstallTimeout: 800000, app: C:\Users\shubham\IdeaProjec..., appActivity: in.sunfox.healthcare.spanda..., appPackage: in.sunfox.healthcare.spanda..., automationName: UiAutomator2, chromeDriverPort: 11001, deviceName: Pixel_4, noReset: true, platformName: ANDROID, systemPort: 10001, udid: emulator-5556, uiautomator2ServerInstallTimeout: 800000}}]
+Capabilities {androidInstallTimeout: 800000, app: C:\Users\shubham\IdeaProjec..., appActivity: in.sunfox.healthcare.spanda..., appPackage: in.sunfox.healthcare.spanda..., automationName: UiAutomator2, chromeDriverPort: 11001, deviceName: Pixel_4, noReset: true, platformName: ANDROID, systemPort: 10001, udid: emulator-5556, uiautomator2ServerInstallTimeout: 800000}
+[Android_Pixel_4 INFO ] 2025-02-10 08:26:56.934 DriverManager:16 - Driver is running and not null.
+[Android_Pixel_4 INFO ] 2025-02-10 08:26:56.934 DriverManager:16 - Driver is running and not null.
+[Android_Pixel_4 WARN ] 2025-02-10 08:26:56.934 DriverManager:29 - Attempted to set a null driver.

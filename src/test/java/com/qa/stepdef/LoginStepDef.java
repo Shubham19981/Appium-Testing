@@ -22,7 +22,7 @@ import static com.qa.utils.DriverManager.driver;
 //import java.time.Duration;
 
 public class LoginStepDef {
-    private static AppiumDriver driver;
+    private  AppiumDriver driver;
 
     public LoginStepDef() {
         // No-argument constructor required by Cucumber
@@ -36,7 +36,7 @@ public class LoginStepDef {
     }
     @Given("I am on the language selection page")
     public void iAmOnTheLanguageSelectionPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/tv_language_heading']")
         ));
@@ -48,11 +48,11 @@ public class LoginStepDef {
             System.out.println("Language Selection page is not displayed");
             throw new AssertionError("Language Selection page not displayed");
         }
-//        try {
-//            Thread.sleep(200); // 2 milliseconds
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Thread.sleep(200); // 2 milliseconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @When("I select the language as {string}")
@@ -192,11 +192,11 @@ public class LoginStepDef {
             System.out.println("Phone Number page is not displayed");
             throw new AssertionError("Phone Number page not displayed");
         }
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @When("I enter the phone number as {string}")
@@ -207,11 +207,11 @@ public class LoginStepDef {
         ));
         phoneNumberField.sendKeys(phoneNumber);;
         System.out.println("Phone " + phoneNumber + " is entered");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @And("I click the checkbox")
@@ -222,11 +222,11 @@ public class LoginStepDef {
         ));
         checkbox.click();
         System.out.println("Check box is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @When("I click on the Get_OTP_button")
@@ -237,11 +237,11 @@ public class LoginStepDef {
         ));
         getOtpButton.click();
         System.out.println("Get OPT button is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Then("I should be on the OTP screen")
@@ -258,11 +258,11 @@ public class LoginStepDef {
             System.out.println("OTP screen is not displayed");
             throw new AssertionError("OTP screen not displayed");
         }
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
 
@@ -274,11 +274,11 @@ public class LoginStepDef {
         ));
         otpField.sendKeys(otp);
         System.out.println("OTP : " + otp + " is entered");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @When("I click on the Verify_OTP_button")
@@ -289,11 +289,11 @@ public class LoginStepDef {
         ));
         verifyOtpButton.click();
         System.out.println("Verify OPT button is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Then("I should be on Dashboard")
@@ -304,116 +304,116 @@ public class LoginStepDef {
         ));
         assert dashboardText.isDisplayed();
         System.out.println("We are in Dashboard");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(200); // 2 milliseconds
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
-
-    @When("I click on the Lead II ECG")
-    public void iClickOnTheLeadIIECG(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement lead2Ecg = wait.until(ExpectedConditions.elementToBeClickable(
-                AppiumBy.xpath("(//android.widget.FrameLayout[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/ecg_test_option_card_view'])[11]/android.view.ViewGroup")
-        ));
-        lead2Ecg.click();
-        System.out.println("Lead 2 ECG is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @Then("I should be on Lead II ECG Test Page")
-    public void iShouldBeOnLeadIIECGTestPage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/new_detail_fragment_test_name_text']")
-        ));
-        assert pageText.isDisplayed();
-        System.out.println("We are in Lead II ECG Test Page");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @When("I click on Start_Test_button")
-    public void iClickOnStart_Test_button() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement lead2EcgTestButton = wait.until(ExpectedConditions.elementToBeClickable(
-                AppiumBy.xpath("//android.view.ViewGroup[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/activity_ecg_test_start_test_button']")
-        ));
-        lead2EcgTestButton.click();
-        System.out.println("Lead 2 ECG is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Then("I should be on a blank screen")
-    public void iShouldBeOnABlankScreen() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/buy_device_fragment_troubleshoot_text']")
-        ));
-        assert pageText.isDisplayed();
-        System.out.println("We are on blank page");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @When("Device is connected")
-    public void deviceIsConnected() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement dialogueText = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                AppiumBy.xpath("//android.widget.TextView[@resource-id='android:id/alertTitle']")
-        ));
-        assert dialogueText.isDisplayed();
-        System.out.println("Device is Connected");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @And("I click on ok button")
-    public void iClickOnOkButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(
-                AppiumBy.xpath("//android.widget.Button[@resource-id='android:id/button1']")
-        ));
-        okButton.click();
-        System.out.println("Ok button is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @And("I click on Start Test")
-    public void iClickOnStartTest() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(
-                AppiumBy.xpath("//android.view.ViewGroup[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/activity_ecg_test_start_test_button']")
-        ));
-        okButton.click();
-        System.out.println("Start Test Button is clicked");
-        try {
-            Thread.sleep(200); // 2 milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//
+//    @When("I click on the Lead II ECG")
+//    public void iClickOnTheLeadIIECG(){
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement lead2Ecg = wait.until(ExpectedConditions.elementToBeClickable(
+//                AppiumBy.xpath("(//android.widget.FrameLayout[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/ecg_test_option_card_view'])[11]/android.view.ViewGroup")
+//        ));
+//        lead2Ecg.click();
+//        System.out.println("Lead 2 ECG is clicked");
+////        try {
+////            Thread.sleep(200); // 2 milliseconds
+////        } catch (InterruptedException e) {
+////            e.printStackTrace();
+////        }
+//    }
+//
+//
+//    @Then("I should be on Lead II ECG Test Page")
+//    public void iShouldBeOnLeadIIECGTestPage() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+//                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/new_detail_fragment_test_name_text']")
+//        ));
+//        assert pageText.isDisplayed();
+//        System.out.println("We are in Lead II ECG Test Page");
+////        try {
+////            Thread.sleep(200); // 2 milliseconds
+////        } catch (InterruptedException e) {
+////            e.printStackTrace();
+////        }
+//    }
+//
+//    @When("I click on Start_Test_button")
+//    public void iClickOnStart_Test_button() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement lead2EcgTestButton = wait.until(ExpectedConditions.elementToBeClickable(
+//                AppiumBy.xpath("//android.view.ViewGroup[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/activity_ecg_test_start_test_button']")
+//        ));
+//        lead2EcgTestButton.click();
+//        System.out.println("Lead 2 ECG is clicked");
+////        try {
+////            Thread.sleep(200); // 2 milliseconds
+////        } catch (InterruptedException e) {
+////            e.printStackTrace();
+////        }
+//    }
+//
+//    @Then("I should be on a blank screen")
+//    public void iShouldBeOnABlankScreen() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement pageText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+//                AppiumBy.xpath("//android.widget.TextView[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/buy_device_fragment_troubleshoot_text']")
+//        ));
+//        assert pageText.isDisplayed();
+//        System.out.println("We are on blank page");
+////        try {
+////            Thread.sleep(200); // 2 milliseconds
+////        } catch (InterruptedException e) {
+////            e.printStackTrace();
+////        }
+//    }
+//
+//    @When("Device is connected")
+//    public void deviceIsConnected() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement dialogueText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+//                AppiumBy.xpath("//android.widget.TextView[@resource-id='android:id/alertTitle']")
+//        ));
+//        assert dialogueText.isDisplayed();
+//        System.out.println("Device is Connected");
+////        try {
+////            Thread.sleep(200); // 2 milliseconds
+////        } catch (InterruptedException e) {
+////            e.printStackTrace();
+////        }
+//    }
+//
+//    @And("I click on ok button")
+//    public void iClickOnOkButton() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(
+//                AppiumBy.xpath("//android.widget.Button[@resource-id='android:id/button1']")
+//        ));
+//        okButton.click();
+//        System.out.println("Ok button is clicked");
+////        try {
+////            Thread.sleep(200); // 2 milliseconds
+////        } catch (InterruptedException e) {
+////            e.printStackTrace();
+////        }
+//    }
+//
+//    @And("I click on Start Test")
+//    public void iClickOnStartTest() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(
+//                AppiumBy.xpath("//android.view.ViewGroup[@resource-id='in.sunfox.healthcare.spandanecg.debug:id/activity_ecg_test_start_test_button']")
+//        ));
+//        okButton.click();
+//        System.out.println("Start Test Button is clicked");
+////        try {
+////            Thread.sleep(200); // 2 milliseconds
+////        } catch (InterruptedException e) {
+////            e.printStackTrace();
+////        }
+//    }
 }

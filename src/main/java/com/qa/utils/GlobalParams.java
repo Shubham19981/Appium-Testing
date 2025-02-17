@@ -81,12 +81,12 @@ public class GlobalParams {
          params.setappiumURL("http://100.105.134.36:4723/");
         switch(params.getPlatformName()){
             case "Android":
-                params.setSystemPort(System.getProperty("systemPort", "10000"));
-                params.setChromeDriverPort(System.getProperty("chromeDriverPort", "11000"));
+                params.setSystemPort(System.getProperty("systemPort", "4725"));
+                params.setChromeDriverPort(System.getProperty("chromeDriverPort", "10000"));
                 break;
             case "iOS":
-                params.setWdaLocalPort(System.getProperty("wdaLocalPort", "10001"));
-                params.setWebkitDebugProxyPort(System.getProperty("webkitDebugProxyPort", "11001"));
+                params.setWdaLocalPort(System.getProperty("wdaLocalPort", "12000"));
+                params.setWebkitDebugProxyPort(System.getProperty("webkitDebugProxyPort", "11000"));
                 break;
             default:
                 throw new IllegalStateException("Invalid Platform Name!");

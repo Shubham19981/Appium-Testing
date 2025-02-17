@@ -8,10 +8,10 @@ import java.io.IOException;
 
 public class DriverManager {
     public static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
-    TestUtils utils = new TestUtils();
+    static TestUtils utils = new TestUtils();
 
     // Get the current driver
-    public AppiumDriver getDriver() {
+    public static AppiumDriver getDriver() {
         if (driver.get() != null) {
             utils.log().info("Driver is running and not null.");
         } else {
@@ -30,15 +30,13 @@ public class DriverManager {
         }
     }
 
-    // Initialize the driver based on platform
     public void initializeDriver() throws Exception {
-        AppiumDriver driver = null;
-        GlobalParams params = new GlobalParams();
-        PropertyManager props = new PropertyManager();
-
-        if (driver == null) {
+        if (driver.get() == null || !isDriverSessionActive(driver.get())) {
             try {
                 utils.log().info("Initializing Appium driver");
+
+                AppiumDriver driver = null;
+                GlobalParams params = new GlobalParams();
 
                 switch (params.getPlatformName()) {
                     case "Android":
@@ -60,7 +58,6 @@ public class DriverManager {
                     throw new Exception("Driver is null. ABORT!!!");
                 }
 
-                // Log successful driver initialization
                 utils.log().info("Driver is initialized successfully.");
                 this.driver.set(driver);
 
@@ -76,14 +73,13 @@ public class DriverManager {
         }
     }
 
-  //  Uncomment this method if you want to quit the driver and log the action
-   public void quitDriver() {
-       if (driver.get() != null) {
-           driver.get().quit();
-           driver.remove();
-           utils.log().info("Driver has been quit and removed");
-       } else {
-           utils.log().warn("Attempted to quit a null driver.");
-       }
-   }
+    // Check if the driver session is active
+    private boolean isDriverSessionActive(AppiumDriver driver) {
+        try {
+            // Just an example check, depending on the capabilities, you can adjust it
+            return driver != null && driver.getSessionId() != null;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
