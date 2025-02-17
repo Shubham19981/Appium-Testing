@@ -19,7 +19,7 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
                 , "summary"
                , "me.jvt.cucumber.report.PrettyReports:target/Pixel3/cucumber-html-reports"
         }
-        ,features = {"src/test/resources"}
+
         ,glue = {"com.qa.stepdef"}
         ,snippets = CAMELCASE
         ,dryRun=false

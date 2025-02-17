@@ -19,8 +19,9 @@ public class CapabilitiesManager {
             caps.setCapability("platformName", params.getPlatformName());
             caps.setCapability("udid", params.getUDID());
             caps.setCapability("deviceName", params.getDeviceName());
-            caps.setCapability("noReset","false");
-            
+            caps.setCapability("noReset","true");
+          //  caps.setCapability("fullReset","true");
+
             switch(params.getPlatformName()){
                 case "Android":
                     caps.setCapability("automationName", props.getProperty("androidAutomationName"));
@@ -29,15 +30,19 @@ public class CapabilitiesManager {
                     caps.setCapability("systemPort", params.getSystemPort());
                     caps.setCapability("chromeDriverPort", params.getChromeDriverPort());
                     caps.setCapability("automationName", "UiAutomator2");
-                    caps.setCapability("androidInstallTimeout", 300000);
+                    caps.setCapability("androidInstallTimeout", 800000);
+                    caps.setCapability("uiautomator2ServerInstallTimeout", 800000);  // Timeout for uiautomator2-server APK installation
+
 
                     //String androidAppUrl = getClass().getResource(props.getProperty("androidAppLocation")).getFile();
 
 
 // Construct the APK path relative to the Jenkins workspace
-                    String androidAppUrl = File.separator + "root" + File.separator + ".jenkins" + File.separator + "workspace" + File.separator + "Test_Android" + File.separator + "src" + File.separator + "test"
-                            + File.separator + "resources" + File.separator + "apps" + File.separator + "app-debug.apk";
+//                    String androidAppUrl = File.separator + "root" + File.separator + ".jenkins" + File.separator + "workspace" + File.separator + "Test_Android" + File.separator + "src" + File.separator + "test"
+//                            + File.separator + "resources" + File.separator + "apps" + File.separator + "app-debug.apk";
 
+                    String androidAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+                            + File.separator + "resources" + File.separator + "apps" + File.separator + "app-debug.apk";
                     utils.log().info("appUrl is {}", androidAppUrl);
 
 // Set the capability to use the dynamically resolved APK path
